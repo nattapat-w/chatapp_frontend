@@ -20,6 +20,7 @@ export default {
         light: {
           primary: "#FFFFFF",
           secondary: "#e2e8f0",
+          mainTheme: "rgb(217 119 6 / var(--tw-bg-opacity));",
           inputBg: "#f3f3f5",
         },
         dark: {

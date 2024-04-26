@@ -15,7 +15,7 @@ const Navbar = () => {
   }, [theme]);
   return (
     <nav className="fixed top-0 left-0 w-full h-12 bg-light-primary text-black dark:bg-dark-primary dark:text-dark-text border-b dark:border-b dark:border-dark-border drop-shadow-sm z-50">
-      <div className="p-4 px-6 h-full flex items-center justify-between">
+      <div className="px-4 lg:p-4 lg:px-6 h-full flex items-center justify-between">
         <div className="flex space-x-3">
           <Link to="/" className="hover:text-gray-200">
             Home
@@ -30,7 +30,7 @@ const Navbar = () => {
         </div>
         <div>
           <Link to="/login" className="hover:text-gray-200">
-            Login
+            Sign in
           </Link>
         </div>
       </div>
