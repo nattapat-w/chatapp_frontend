@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import profileImage from "../../assets/profile.png";
 import Textbox from "./Textbox";
 const ChatBox = () => {
@@ -84,6 +84,7 @@ const ChatBox = () => {
       isOwner: false,
     },
   ];
+  const chatContainerRef = useRef<HTMLDivElement>(null); 
   const [message, setMessage] = useState("");
   const [mockDataList, setMockDataList] = useState(mockData);
 
@@ -91,6 +92,11 @@ const ChatBox = () => {
     event: React.ChangeEvent<HTMLTextAreaElement>
   ) => {
     setMessage(event.target.value);
+  };
+  const scrollChatToBottom = () => {
+    if (chatContainerRef.current) {
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    }
   };
   const handleMessageSubmit = () => {
     if (message.trim() !== "") {
@@ -103,6 +109,10 @@ const ChatBox = () => {
         },
       ]);
       setMessage("");
+      // delay for new message
+      setTimeout(() => {
+        scrollChatToBottom();
+      }, 0);
     }
   };
   const handleKeyDown = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -117,7 +127,7 @@ const ChatBox = () => {
   };
   return (
     <>
-      <div className="flex flex-col bg-slate-100 w-8/12 flex-grow">
+      <div className="flex flex-col w-full  bg-slate-100 lg:w-8/12 flex-grow">
         {/* User Nav */}
         <div className="flex justify-center">
           <div className="flex justify-between w-full items-center bg-light-primary drop-shadow-sm dark:border-b border-r dark:border-dark-border dark:bg-dark-primary p-3 dark:text-dark-text">
@@ -128,15 +138,15 @@ const ChatBox = () => {
                 alt="Profile"
               ></img>
               <div className="flex flex-col">
-                <span>James Ratchapon</span>
-                <span className="text-xs">Currently using</span>
+                <span className="text:black dark:text-dark-text">James Ratchapon</span>
+                <span className="text-xs text:black dark:text-dark-text">Currently using</span>
               </div>
             </div>
             <div className="">Info</div>
           </div>
         </div>
         {/* body */}
-        <div className="h-full w-full bg-gray-50 dark:bg-dark-primary light p-3 overflow-auto">
+        <div ref={chatContainerRef} className="h-full w-full bg-gray-50 dark:bg-dark-primary light p-3 overflow-auto">
           {/* Chat Message */}
           {mockDataList.map((textbox) => (
             <Textbox

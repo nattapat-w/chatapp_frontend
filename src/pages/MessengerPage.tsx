@@ -6,7 +6,7 @@ import Sidebar from "../components/Messenger/Sidebar";
 const MessengerPage = () => {
   return (
     <>
-      <div className="flex h-full pt-12">
+      <div className="flex pt-12 flex-col lg:flex lg:h-full lg:pt-12 lg:flex-row" id="messenger-page">
         <Sidebar />
         <ChatBox />
         <ProfileDetail />

@@ -84,7 +84,7 @@ const Sidebar = () => {
     <>
       <aside
         id="default-sidebar"
-        className="sticky w-96 z-40 drop-shadow-md"
+        className="sticky w-full lg:w-96 z-40 drop-shadow-md"
         aria-label="Sidebar"
       >
         <div className="h-full flex flex-col bg-gray-50 dark:bg-dark-primary">
