@@ -4,14 +4,16 @@ import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Root from "./routes/Root.tsx";
 import MessengerPage from "./pages/MessengerPage.tsx";
-import LoginPage from "./pages/LoginPage.tsx";
-import RegisterPage from "./pages/RegisterPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
+import ErrorPage from "./pages/ErrorPage.tsx";
+import LoginPage from "./pages/Authen/LoginPage.tsx";
+import RegisterPage from "./pages/Authen/RegisterPage.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "",

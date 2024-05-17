@@ -1,6 +1,10 @@
-import React from "react";
-import PeopleItemProps from "./IPeopleItem";
 import defaultProfileImage from "../../assets/profile.png";
+
+export interface PeopleItemProps {
+  username: string;
+  fullname: string;
+  profileImage: string;
+}
 const PeopleItem = ({ data }: { data: PeopleItemProps }) => {
   return (
     <>
@@ -15,7 +19,9 @@ const PeopleItem = ({ data }: { data: PeopleItemProps }) => {
             alt="Profile Image"
           ></img>
           <div className="flex flex-col p-2">
-            <span className="flex-1 whitespace-nowrap font-semibold">{data.fullname}</span>
+            <span className="flex-1 whitespace-nowrap font-semibold">
+              {data.fullname}
+            </span>
             <p className="text-sm text-gray-500">@{data.username}</p>
           </div>
         </a>

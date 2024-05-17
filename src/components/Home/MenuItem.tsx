@@ -1,6 +1,10 @@
-import React from "react";
 import defaultProfileImage from "../../assets/profile.png";
-import MenuItemProps from "./IMenuItem";
+
+export interface MenuItemProps {
+  image: string;
+  title: string;
+}
+
 
 const MenuItem = ({ title, image }: MenuItemProps) => {
   return (

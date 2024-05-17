@@ -1,6 +1,12 @@
-import React from "react";
 import defaultProfileImage from "../../assets/profile.png";
-import ChatbarProps from "./IChatbar";
+
+
+export interface ChatbarProps {
+  profileImage: string;
+  fullname: string;
+  notification: number;
+}
+
 
 const Chatbar = ({ profileImage, fullname, notification }: ChatbarProps) => {
   console.log(fullname);

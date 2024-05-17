@@ -1,6 +1,5 @@
-import React from "react";
 import defaultProfileImage from "../../assets/profile.png";
-import MenuItemProps from "./IMenuItem";
+import { MenuItemProps } from "./MenuItem";
 import MenuItem from "./MenuItem";
 
 const Sidebar = () => {
